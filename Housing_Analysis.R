@@ -2,14 +2,18 @@ library(MASS) # Library for
 library(tidyr)
 library(car) # Library for VIFs
 library(regclass) # Library to get VIFS
-library(ggplot2)
+library(ggplot2) # Plotting
+library(EnvStats) # Box-cox Transformation
 
 
-# Read in Data ------------------------------------------------------------
+# Read in and Split Data ------------------------------------------------------------
 housing_data <- read.csv(paste0(getwd(), "/data/house_data.csv"))
+set.seed(12345)
+sample_size = 0.70
+indices <- sample(seq_len(nrow(housing_data)), size = sample_size)
 
 
-# Clean data --------------------------------------------------------------
+# Clean Data --------------------------------------------------------------
 dropped_columns <- c("id", "date", "zipcode", "lat", "long", "sqft_living15", "sqft_lot15")
 housing_data <- housing_data[, !(names(housing_data) %in% dropped_columns)]
 
