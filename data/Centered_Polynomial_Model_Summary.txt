@@ -1,0 +1,30 @@
+
+Call:
+lm(formula = Price ~ poly_training$`Number of Bathrooms` + training$`Number of Bathrooms` + 
+    training$`Number of Bedrooms` + training$`Number of Pictures`, 
+    data = poly_training)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-231368  -27468   -2212   25671  190302 
+
+Coefficients:
+                                    Estimate Std. Error t value Pr(>|t|)
+(Intercept)                          -7774.4    55901.2  -0.139 0.889985
+poly_training$`Number of Bathrooms`   2208.6      145.5  15.177  < 2e-16
+training$`Number of Bathrooms`       93126.8    18363.5   5.071 6.61e-06
+training$`Number of Bedrooms`        58238.7    15090.4   3.859 0.000346
+training$`Number of Pictures`         2648.1      900.9   2.939 0.005086
+                                       
+(Intercept)                            
+poly_training$`Number of Bathrooms` ***
+training$`Number of Bathrooms`      ***
+training$`Number of Bedrooms`       ***
+training$`Number of Pictures`       ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 75980 on 47 degrees of freedom
+Multiple R-squared:  0.9586,	Adjusted R-squared:  0.955 
+F-statistic: 271.8 on 4 and 47 DF,  p-value: < 2.2e-16
+
